@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Check Weather{% endblock %}
+
+{% block content %}
+<div class="weather-container text-center mt-5">
+    <h2 class="mb-4">Weather Checker</h2>
+
+    <form method="POST" class="d-flex justify-content-center gap-2">
+        {% csrf_token %}
+        <input type="text" class="form-control w-50" name="city" placeholder="Enter city name" required>
+        <button type="submit" class="btn btn-dark">Get Weather</button>
+    </form>
+
+    {% if weather_data %}
+        <div class="weather-details mt-4">
+            <h4>Weather in {{ weather_data.city }}</h4>
+            <img src="https://openweathermap.org/img/wn/{{ weather_data.icon }}@2x.png" alt="Weather icon">
+            <p>🌡️ Temperature: {{ weather_data.temperature }}°C</p>
+            <p>🌫️ Condition: {{ weather_data.description }}</p>
+            <p>💧 Humidity: {{ weather_data.humidity }}%</p>
+            <p>💨 Wind Speed: {{ weather_data.wind }} m/s</p>
+        </div>
+    {% elif error %}
+        <div class="alert alert-danger mt-4">{{ error }}</div>
+    {% endif %}
+</div>
+{% endblock %}

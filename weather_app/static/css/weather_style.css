@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(to right, #6dd5ed, #2193b0);
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    padding-top: 50px;
+}
+
+.weather-container {
+    max-width: 500px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.form-control {
+    border-radius: 25px;
+}
+
+.btn {
+    border-radius: 25px;
+}
+
+.weather-details {
+    margin-top: 20px;
+}
